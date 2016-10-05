@@ -15,4 +15,6 @@
 
 	<licence>GNU/GPL</licence>
 
+	<necessite nom="medias" compatibilite="[2.10.28;]" />
+
 </paquet>
