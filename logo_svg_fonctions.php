@@ -1,6 +1,5 @@
 <?php
 
-	$GLOBALS['formats_logos'] = array('gif', 'jpg', 'png', 'svg');
 
 	function logo_svg_largeur($fichier) {
 		$metadata_svg = charger_fonction('svg', 'metadata');
