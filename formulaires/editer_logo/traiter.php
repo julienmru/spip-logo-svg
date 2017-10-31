@@ -5,7 +5,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 }
 
 function formulaires_editer_logo_traiter($objet, $id_objet, $retour = '', $options = array()) {
-	spip_log('On passe dans traiter', 'test.'._LOG_ERREUR);
 	$res = array('editable' => ' ');
 
 	// pas dans une boucle ? formulaire pour le logo du site
