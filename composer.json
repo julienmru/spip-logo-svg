@@ -1,0 +1,8 @@
+{
+    "name": "spip/logo_svg",
+     "require": {
+        "php": ">=5.3.3",
+        "enshrined/svg-sanitize": "0.7.2"
+    },
+    "minimum-stability": "stable"
+}
