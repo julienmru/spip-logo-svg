@@ -1,7 +1,7 @@
 <paquet
 	prefix="logo_svg"
 	categorie="edition"
-	version="1.0.0"
+	version="1.1.0"
 	etat="test"
 	compatibilite="[3.1.0;3.1.*]"
 	logo="images/logo_logo_svg_32.png"
