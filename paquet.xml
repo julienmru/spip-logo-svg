@@ -5,6 +5,7 @@
 	etat="test"
 	compatibilite="[3.1.0;3.1.*]"
 	logo="images/logo_logo_svg_32.png"
+	documentation="https://contrib.spip.net/4834"
 
 >
 
