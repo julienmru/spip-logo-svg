@@ -27,10 +27,14 @@ function formulaires_editer_logo_verifier($objet, $id_objet, $retour = '', $opti
 		if ($file and $file['error'] == 0) {
 			if (!in_array(strtolower(pathinfo($file['name'], PATHINFO_EXTENSION)), $GLOBALS['formats_logos'])) {
 				$erreurs['logo_' . $etat] = _L('Extension non reconnue');
+			} else if (strtolower(pathinfo($file['name'], PATHINFO_EXTENSION)) == 'svg'){
+				$sanitize = charger_fonction('svg_sanitize', 'inc');
+				if (!$sanitize($file['tmp_name'])) {
+					$erreurs['logo_' . $etat] = _T('logo_svg:erreur_sanitize');
+				}
 			}
 		}
 	}
-	spip_log('On passe dans vérifier', 'test.'._LOG_ERREUR);
 	include_spip('formulaires/editer_logo/traiter');
 	return $erreurs;
 }
