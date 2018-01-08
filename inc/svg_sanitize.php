@@ -11,7 +11,6 @@ function inc_svg_sanitize_dist($fichier) {
 	$sanitizer = new Sanitizer();
 
 	$original = file_get_contents($fichier);
-	$sanitizer->setAllowedTags('use');
 	$nettoye = $sanitizer->sanitize($original);
 
 	if (!$nettoye) {
