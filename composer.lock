@@ -1,28 +1,28 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6bddb8311f5275b3f50fa4445261fe5e",
+    "content-hash": "abb79f488da716bb48d85154413267e8",
     "packages": [
         {
             "name": "enshrined/svg-sanitize",
-            "version": "0.7.2",
+            "version": "0.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/darylldoyle/svg-sanitizer.git",
-                "reference": "2768fb1c8868d97145e8f2a5457caf590c8d2062"
+                "reference": "5344d8511e494adf160f71f4b34024d3a3c66c82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/darylldoyle/svg-sanitizer/zipball/2768fb1c8868d97145e8f2a5457caf590c8d2062",
-                "reference": "2768fb1c8868d97145e8f2a5457caf590c8d2062",
+                "url": "https://api.github.com/repos/darylldoyle/svg-sanitizer/zipball/5344d8511e494adf160f71f4b34024d3a3c66c82",
+                "reference": "5344d8511e494adf160f71f4b34024d3a3c66c82",
                 "shasum": ""
             },
             "require-dev": {
                 "codeclimate/php-test-reporter": "^0.1.2",
-                "phpunit/phpunit": "^4.7"
+                "phpunit/phpunit": "^6"
             },
             "type": "library",
             "autoload": {
@@ -41,7 +41,7 @@
                 }
             ],
             "description": "An SVG sanitizer for PHP",
-            "time": "2017-08-31T00:10:18+00:00"
+            "time": "2019-01-11T12:31:32+00:00"
         }
     ],
     "packages-dev": [],

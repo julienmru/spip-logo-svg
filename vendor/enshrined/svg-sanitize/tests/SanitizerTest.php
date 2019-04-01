@@ -3,11 +3,12 @@ require 'data/TestAllowedTags.php';
 require 'data/TestAllowedAttributes.php';
 
 use \enshrined\svgSanitize\Sanitizer;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class SanitizerTest
  */
-class SanitizerTest extends PHPUnit_Framework_TestCase
+class SanitizerTest extends TestCase
 {
     /**
      * @var Sanitizer
@@ -52,7 +53,8 @@ class SanitizerTest extends PHPUnit_Framework_TestCase
         $tags = $this->class->getAllowedTags();
 
         $this->assertInternalType('array', $tags);
-        $this->assertEquals(TestAllowedTags::getTags(), $tags);
+
+        $this->assertEquals(array_map('strtolower', TestAllowedTags::getTags()), $tags);
     }
 
     /**
@@ -65,7 +67,8 @@ class SanitizerTest extends PHPUnit_Framework_TestCase
         $attributes = $this->class->getAllowedAttrs();
 
         $this->assertInternalType('array', $attributes);
-        $this->assertEquals(TestAllowedAttributes::getAttributes(), $attributes);
+
+        $this->assertEquals( array_map('strtolower', TestAllowedAttributes::getAttributes()), $attributes);
     }
 
     /**
@@ -162,5 +165,34 @@ class SanitizerTest extends PHPUnit_Framework_TestCase
         $this->class->minify(false);
 
         $this->assertXmlStringEqualsXmlString($expected, $cleanData);
+    }
+
+    /**
+     * Test that ARIA and Data Attributes are allowed
+     */
+    public function testThatExternalUseElementsAreStripped()
+    {
+        $initialData = file_get_contents('tests/data/useTest.svg');
+        $expected = file_get_contents('tests/data/useClean.svg');
+
+        $this->class->minify(false);
+        $cleanData = $this->class->sanitize($initialData);
+        $this->class->minify(false);
+
+        $this->assertXmlStringEqualsXmlString($expected, $cleanData);
+    }
+
+    /**
+     * Test setXMLOptions and minifying works as expected
+     */
+    public function testMinifiedOptions()
+    {
+        $this->class->minify(true);
+        $this->class->removeXMLTag(true);
+        $this->class->setXMLOptions(0);
+
+        $input = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>chevron-double-down</title><path d="M4 11.73l.68-.73L12 17.82 19.32 11l.68.73-7.66 7.13a.5.5 0 0 1-.68 0z"/><path d="M4 5.73L4.68 5 12 11.82 19.32 5l.68.73-7.66 7.13a.5.5 0 0 1-.68 0z"/></svg>';
+        $output = $this->class->sanitize($input);
+        $this->assertEquals($input, $output);
     }
 }
