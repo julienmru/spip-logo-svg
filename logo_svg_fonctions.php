@@ -77,7 +77,7 @@ function logo_modifier_svg($objet, $id_objet, $etat, $source) {
 		return $erreur;
 	}
 
-	if (preg_match('/\.svg$/', $source['name'])) {
+	if (preg_match('/\.svg$/', is_array($source) ? $source['name'] : $source)) {
 		$metadata_svg = charger_fonction('svg', 'metadata');
 
 		$size = $metadata_svg($file_tmp);
@@ -99,4 +99,5 @@ function logo_modifier_svg($objet, $id_objet, $etat, $source) {
 		spip_unlink($file_tmp);
 		$erreur = _T('info_logo_format_interdit', array('formats' => join(', ', $GLOBALS['formats_logos'])));
 	}
+	return $erreur;
 }

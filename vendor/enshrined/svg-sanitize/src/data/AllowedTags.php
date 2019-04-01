@@ -32,7 +32,7 @@ class AllowedTags implements TagInterface
             'option','output','p','pre','progress','q','rp','rt','ruby','s','samp',
             'section','select','shadow','small','source','spacer','span','strike',
             'strong','style','sub','summary','sup','table','tbody','td','template',
-            'textarea','tfoot','th','thead','time','tr','track','tt','u','ul','var',
+            'textarea','tfoot','th','thead','time','tr','track','tt','u','ul','use','var',
             'video','wbr',
 
             // SVG
