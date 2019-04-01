@@ -1,0 +1,5 @@
+/* Surcharge de https://core.spip.net/projects/spip/repository/entry/spip/prive/themes/spip/lists.css.html */
+/* Permet, dans tout les cas, d'afficher un logo au format SVG dans une liste d'objet de l'espace privé, comme par exemple dans ecrire/?exec=articles */
+.liste-objets tr td.logo {
+	min-width:40px;
+}
